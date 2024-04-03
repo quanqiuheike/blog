@@ -23,10 +23,10 @@
       window.$docsify = {
 
         // el: "#app",
-        name: '<a href="https://quanqiuheike.github.io/blogs">程@Blog</a>',
+        name: '<a href="https://quanqiuheike.github.io/blog">程@Blog</a>',
         // name: '<a href="http://localhost:3000">程的博客</a>',
         //github挂件username/repo 完整https://github.com/docsifyjs/docsify/
-        repo: 'https://github.com/quanqiuheike/blogs/',
+        repo: 'https://github.com/quanqiuheike/blog/',
         // 入口文件改为 /guide.md
         // homepage: 'guide.md',
         //左侧导航目录，默认加载_sidebar.md
@@ -96,7 +96,7 @@
           function (hook, vm) {
             hook.beforeEach(function (html) {
               var url =
-                'https://github.com/quanqiuheike/blogs/blob/main/docs/' +
+                'https://github.com/quanqiuheike/blog/blob/master/docs/' +
                 vm.route.file;
               var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
               return (
