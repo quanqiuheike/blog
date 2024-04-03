@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>程</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description github">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <!-- 创建系统默认，使用别的主题需要注释掉 -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <!-- Theme: Simple  简单主题，有折叠箭头 -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css"> -->
+  <!-- Theme: Simple Dark 暗黑  -->
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css"> -->
+</head>
+
+<body>
+  <div id="app">
+  </div>
+  <script>
+    const gitalk =
+      window.$docsify = {
+
+        // el: "#app",
+        name: '<a href="https://quanqiuheike.github.io/blogs">程@Blog</a>',
+        // name: '<a href="http://localhost:3000">程的博客</a>',
+        //github挂件username/repo 完整https://github.com/docsifyjs/docsify/
+        repo: 'https://github.com/quanqiuheike/blogs/',
+        // 入口文件改为 /guide.md
+        // homepage: 'guide.md',
+        //左侧导航目录，默认加载_sidebar.md
+        loadSidebar: true,
+        //可以根据 _sidebar.md 的内容自动为每个页面增加文件标题
+        autoHeader: false,
+        subMaxLevel: 3,
+        // 将文档中标题渲染成目录
+        maxLevel: 4,
+        executeScript: true,
+        auto2top: true,
+        //导航栏，_navbar.md
+        loadNavbar: true,
+        //小屏设备下合并导航栏到侧边栏true。
+        mergeNavbar: false,
+        //封面 _coverpage.md
+        coverpage: false,
+        //显示文档更新日期 {docsify-updated}
+        formatUpdated: '{YYYY}/{MM}/{DD} {HH}:{mm}',
+        // 启用相对路径
+        relativePath: true,
+        // 主题颜色
+        themeColor: '#ff0000',
+        search: {
+          paths: 'auto',
+          noData: 'No results!',
+          // 支持本地化
+          placeholder: {
+            '/': '搜索'
+          },
+        },
+        pagination: {
+          previousText: '上一章节',
+          nextText: '下一章节',
+          // 父目录
+          crossChapter: true,
+          // 兄弟目录
+          crossChapterText: false,
+        },
+        //字数统计
+        count: {
+          countable: true,
+          fontsize: '0.9em',
+          color: 'rgb(90,90,90)',
+          language: 'chinese'
+        },
+
+        alias: {
+          // '//【01】java筑基': '/java',
+          // '/【02】kotlin': '/kotlin',
+          // '/【03】高级UI': '/高级UI',
+          // '/【04】FrameWork层源码解析': '/FrameWork层源码解析',
+          // '/【05】性能优化': '/性能优化',
+          // '/【06】开源框架': '/开源框架',
+          // '/【07】NDK': '/ndk',
+          // '/【08】设计模式': '/设计模式',
+          // '/【09】Gralde': '/Gralde',
+          '/.*/_sidebar.md': '/_sidebar.md'
+        },
+        // 按照路由切换
+        nameLink: {
+          // '/【01】java筑基': '/java',
+          // // 'aidl': '/',
+          // '/': '/kotlin/',
+        },
+        plugins: [
+          function (hook, vm) {
+            hook.beforeEach(function (html) {
+              var url =
+                'https://github.com/quanqiuheike/blogs/blob/main/docs/' +
+                vm.route.file;
+              var editHtml = '[📝 EDIT DOCUMENT](' + url + ')\n';
+              return (
+                editHtml +
+                html +
+                '\n----\n' +
+                'last modify time {docsify-updated} '
+              );
+            });
+
+          }
+        ],
+      }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="assets/js/main.js"></script>
+  <!-- 主题 -->
+  <script src="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/js/docsify-themeable.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1/dist/docsify-tabs.min.js"></script>
+  <!-- 搜索 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <!-- 多个搜索 -->
+  <!-- <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script> -->
+
+  <!-- emoji表情 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
+
+  <!-- 复制代码块 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-copy-code/dist/docsify-copy-code.min.js"></script>
+  <!-- 图片点击打开缩放 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <!-- 分页 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!-- 字数统计 -->
+  <script src="//unpkg.com/docsify-count/dist/countable.js"></script>
+
+  <!-- 代码高亮 对java不生效，别的可以-->
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-python.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-java.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-kotlin.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-c.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-dart.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-sql.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/prismjs@1.25.0/components/prism-groovy.min.js"></script>
+
+
+
+</body>
+
+</html>
